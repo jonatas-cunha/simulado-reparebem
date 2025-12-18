@@ -21,7 +21,7 @@ public class RepareBem {
 		throw new IllegalArgumentException();
 	}
 	
-	private void existeServico(int idOS) throws Exception {
+	private void existeServico(int idOS) {
 		if (0 < idOS || 499 < idOS || this.servicos[idOS] == null) {
 			throw new IllegalArgumentException();
 		}
@@ -52,25 +52,25 @@ public class RepareBem {
 	}
 	
 	
-	public String exibirOrdemDeServico(int idOS) throws Exception {
+	public String exibirOrdemDeServico(int idOS) {
 		this.existeServico(idOS);
 		return "#" + idOS + "; " + this.servicos[idOS - 1].toString();
 	}
 	
 	
-	public void incluirReparoOrdemDeServico(int idOS, String idReparo) throws Exception {
+	public void incluirReparoOrdemDeServico(int idOS, String idReparo) {
 		this.existeServico(idOS);
 		this.servicos[iServicos].incluirReparo(this.getReparo(idReparo));
 	}
 	
 	
-	public void mudarStatusOrdemDeServico(int idOS, String status) throws Exception {
+	public void mudarStatusOrdemDeServico(int idOS, String status) {
 		this.existeServico(idOS);
 		this.servicos[idOS - 1].alterarStatus(status);
 	}
 	
 	
-	public double obterValorOrdemServico(int idOS) throws Exception {
+	public double obterValorOrdemServico(int idOS) {
 		this.existeServico(idOS);
 		return this.servicos[idOS - 1].getPreco();
 	}
